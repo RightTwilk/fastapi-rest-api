@@ -1,0 +1,25 @@
+from enum import Enum
+
+class Theme(str, Enum):
+    NEWS = "news"
+    FASHION = "fashion"
+    SCIENCE = "science"
+    TECHNOLOGY = "technology"
+    BUSINESS = "business"
+    SPORTS = "sports"
+    HEALTH = "health"
+    TRAVEL = "travel"
+    FOOD = "food"
+    ART = "art"
+    MUSIC = "music"
+    CINEMA = "cinema"
+    LITERATURE = "literature"
+    POLITICS = "politics"
+    ECONOMY = "economy"
+    CARS = "cars"
+    GAMING = "gaming"
+    EDUCATION = "education"
+    PSYCHOLOGY = "psychology"
+    HISTORY = "history"
+    NATURE = "nature"
+    
