@@ -1,5 +1,6 @@
 from enum import Enum
 
+
 class Month(str, Enum):
     JANUARY = "january"
     FEBRUARY = "february"
@@ -12,4 +13,4 @@ class Month(str, Enum):
     SEPTEMBER = "september"
     OCTOBER = "october"
     NOVEMBER = "november"
-    DECEMBER = "december"   
+    DECEMBER = "december"

@@ -20,7 +20,9 @@ class ItemModel(DeclarativeBase):
     price: Mapped[Optional[Decimal]] = mapped_column(Numeric(10, 2), nullable=False)
 
     __table_args__ = (
-        CheckConstraint("publication_year BETWEEN 1450 AND 2026", name="check_year_range"),
+        CheckConstraint(
+            "publication_year BETWEEN 1450 AND 2026", name="check_year_range"
+        ),
         CheckConstraint("price >= 0", name="check_price_non_negative"),
         CheckConstraint("title <> ''", name="check_title_not_empty"),
     )

@@ -10,10 +10,10 @@ from enums.theme_enum import Theme
 
 class Magazine(ItemModel):
     issue_number: Mapped[int] = mapped_column(Integer, nullable=False)
-    issn: Mapped[Optional[str]] = mapped_column(String(9), unique=True) 
+    issn: Mapped[Optional[str]] = mapped_column(String(9), unique=True)
     month: Mapped[Optional[Month]] = mapped_column(Enum(Month))
-    season: Mapped[Optional[Season]] = mapped_column(Enum(Season)) 
-    periodicity: Mapped[Optional[Periodicity]] = mapped_column(Enum(Periodicity))  
+    season: Mapped[Optional[Season]] = mapped_column(Enum(Season))
+    periodicity: Mapped[Optional[Periodicity]] = mapped_column(Enum(Periodicity))
     theme: Mapped[Optional[Theme]] = mapped_column(Enum(Theme))
 
     __table_args__ = (

@@ -7,9 +7,6 @@ from enums.theme_enum import Theme
 from schemas.items_schemas_package.item_schema import ItemSchema
 
 
-
-
-
 class MagazineSchema(ItemSchema):
     issue_number: int = Field(ge=1)
     issn: Optional[str] = Field(None, pattern=r"^\d{4}-\d{4}$")

@@ -1,5 +1,6 @@
 from enum import Enum
 
+
 class Theme(str, Enum):
     NEWS = "news"
     FASHION = "fashion"
@@ -22,4 +23,3 @@ class Theme(str, Enum):
     PSYCHOLOGY = "psychology"
     HISTORY = "history"
     NATURE = "nature"
-    
