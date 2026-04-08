@@ -1,10 +1,10 @@
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, declared_attr
+from sqlalchemy import Numeric, Enum, CheckConstraint, Sequence
 from typing import Optional
-from sqlalchemy import Numeric, Enum, CheckConstraint
 from enums.lang_enum import Language
 from decimal import Decimal
 
-
+global_items_id = Sequence('global_id', start=1, increment=1)
 class ItemModel(DeclarativeBase):
 
     @declared_attr.directive
@@ -12,7 +12,7 @@ class ItemModel(DeclarativeBase):
         return cls.__name__.lower()
 
     __abstract__ = True
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(primary_key=True, server_default=global_items_id.next_value())
     title: Mapped[str] = mapped_column(nullable=False)
     publication_year: Mapped[int]
     publisher: Mapped[str] = mapped_column(nullable=False)
