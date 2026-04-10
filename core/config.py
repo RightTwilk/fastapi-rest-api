@@ -5,7 +5,7 @@ class Settings(BaseSettings):
 
     DATABASE_URL: str = Field(..., init=False)
     SECRET_KEY: str = Field(..., init=False)
-
+    ECHO: bool = True
     class Config:
 
         env_file = ".env"
