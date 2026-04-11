@@ -3,12 +3,11 @@ from datetime import datetime
 from typing import Optional
 
 
-
 class UserModel(DeclarativeBase):
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     email: Mapped[str] = mapped_column(unique=True, nullable=False, index=True)
     username: Mapped[str] = mapped_column(unique=True, nullable=False, index=True)
-    full_name: Mapped[Optional[str]] 
+    full_name: Mapped[Optional[str]]
     hashed_password: Mapped[str] = mapped_column(nullable=False)
     is_active: Mapped[bool] = mapped_column(default=True)
     is_superuser: Mapped[bool] = mapped_column(default=False)

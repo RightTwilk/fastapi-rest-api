@@ -7,4 +7,3 @@ class UserSchema(BaseModel):
     email: EmailStr = Field(...)
     full_name: Optional[str] = Field(max_length=50)
     password: str = Field(...)
-    
