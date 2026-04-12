@@ -5,6 +5,7 @@ from models.base import Base
 
 
 class UserModel(Base):
+    __tablename__ = 'users'
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     email: Mapped[str] = mapped_column(unique=True, nullable=False, index=True)
     username: Mapped[str] = mapped_column(unique=True, nullable=False, index=True)
