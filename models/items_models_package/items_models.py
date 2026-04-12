@@ -5,7 +5,7 @@ from enums.lang_enum import Language
 from decimal import Decimal
 from models.base import Base
 
-global_items_id = Sequence("global_id", start=1, increment=1)
+global_items_id = Sequence("global_id", start=1, increment=1, metadata=Base.metadata)
 
 
 class ItemModel(Base):
