@@ -18,5 +18,4 @@ class Magazine(ItemModel):
 
     __table_args__ = (
         CheckConstraint("issue_number > 0", name="ck_magazine_issue_number_positive"),
-        CheckConstraint("month BETWEEN 1 AND 12", name="ck_magazine_month_range"),
     )
