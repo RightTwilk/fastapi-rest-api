@@ -1,13 +1,14 @@
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, declared_attr
+from sqlalchemy.orm import Mapped, mapped_column, declared_attr
 from sqlalchemy import Numeric, Enum, CheckConstraint, Sequence
 from typing import Optional
 from enums.lang_enum import Language
 from decimal import Decimal
+from models.base import Base
 
 global_items_id = Sequence("global_id", start=1, increment=1)
 
 
-class ItemModel(DeclarativeBase):
+class ItemModel(Base):
 
     @declared_attr.directive
     def __tablename__(cls) -> str:

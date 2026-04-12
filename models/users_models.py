@@ -1,9 +1,10 @@
-from sqlalchemy.orm import Mapped, DeclarativeBase, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column
 from datetime import datetime
 from typing import Optional
+from models.base import Base
 
 
-class UserModel(DeclarativeBase):
+class UserModel(Base):
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     email: Mapped[str] = mapped_column(unique=True, nullable=False, index=True)
     username: Mapped[str] = mapped_column(unique=True, nullable=False, index=True)
