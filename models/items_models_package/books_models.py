@@ -12,7 +12,7 @@ class Book(ItemModel):
     isbn: Mapped[Optional[str]] = mapped_column(String(13), unique=True)
     page_count: Mapped[Optional[int]] = mapped_column(Integer)
     genre: Mapped[Optional[str]] = mapped_column(String(100))
-    cover_type: Mapped[Optional[CoverType]] = mapped_column(Enum(CoverType), String(50))
+    cover_type: Mapped[Optional[CoverType]] = mapped_column(Enum(CoverType))
 
     __table_args__ = (
         CheckConstraint("page_count > 0", name="ck_book_page_count_positive"),
