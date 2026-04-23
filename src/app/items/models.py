@@ -2,7 +2,15 @@ from datetime import date
 from sqlalchemy.orm import Mapped, mapped_column, declared_attr
 from sqlalchemy import Date, Numeric, Enum, CheckConstraint, Sequence, String, Integer
 from typing import Optional
-from app.items.enums import Month, Season, Periodicity, Theme, CoverType, Language, BookGenre
+from app.items.enums import (
+    Month,
+    Season,
+    Periodicity,
+    Theme,
+    CoverType,
+    Language,
+    BookGenre,
+)
 from decimal import Decimal
 from app.models.base import Base
 
@@ -33,6 +41,7 @@ class ItemModel(Base):
         CheckConstraint("title <> ''", name="check_title_not_empty"),
     )
 
+
 class Book(ItemModel):
 
     author: Mapped[str] = mapped_column(String(255), nullable=False)
@@ -45,6 +54,7 @@ class Book(ItemModel):
         CheckConstraint("page_count > 0", name="ck_book_page_count_positive"),
     )
 
+
 class Magazine(ItemModel):
     issue_number: Mapped[int] = mapped_column(Integer, nullable=False)
     issn: Mapped[Optional[str]] = mapped_column(String(9), unique=True)
@@ -56,6 +66,7 @@ class Magazine(ItemModel):
     __table_args__ = (
         CheckConstraint("issue_number > 0", name="ck_magazine_issue_number_positive"),
     )
+
 
 class Newspaper(ItemModel):
     issue_date: Mapped[date] = mapped_column(Date, nullable=False)

@@ -1,4 +1,4 @@
-from app.items.enums.cover_enum import CoverType 
+from app.items.enums.cover_enum import CoverType
 from app.items.enums.genre_enum import BookGenre
 from app.items.enums.lang_enum import Language
 from app.items.enums.month_enum import Month
@@ -13,5 +13,5 @@ __all__ = (
     "Month",
     "Periodicity",
     "Season",
-    "Theme"
+    "Theme",
 )
