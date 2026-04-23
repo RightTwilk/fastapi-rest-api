@@ -3,7 +3,13 @@ from typing import Optional
 from pydantic import BaseModel, Field
 from decimal import Decimal
 from app.items.enums import (
-    Month, Season, Periodicity, Theme, CoverType, Language, BookGenre
+    Month,
+    Season,
+    Periodicity,
+    Theme,
+    CoverType,
+    Language,
+    BookGenre,
 )
 
 
