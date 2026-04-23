@@ -2,7 +2,9 @@ from fastapi import FastAPI
 from contextlib import asynccontextmanager
 from app.models.base import Base
 from core.database import database_helper
+from app.items.router import item_router
 import uvicorn
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -10,8 +12,12 @@ async def lifespan(app: FastAPI):
         await conn.run_sync(Base.metadata.create_all)
     yield
 
+
 app = FastAPI(lifespan=lifespan)
-@app.get('/')
+app.include_router(item_router)
+
+
+@app.get("/")
 def hghgh():
     return 1
 
