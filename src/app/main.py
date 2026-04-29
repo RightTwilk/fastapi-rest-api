@@ -17,10 +17,5 @@ app = FastAPI(lifespan=lifespan)
 app.include_router(item_router)
 
 
-@app.get("/")
-def hghgh():
-    return 1
-
-
 if __name__ == "__main__":
     uvicorn.run("main:app", reload=True)
