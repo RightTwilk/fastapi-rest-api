@@ -50,6 +50,10 @@ class BookCreate(BookBase):
     pass
 
 
+class BookResponse(BookBase):
+    id: int
+
+
 class MagazineCreate(MagazineBase):
     pass
 
