@@ -1,0 +1,42 @@
+# Пример создания объекта Book
+book_model = Book(
+    title=book_data.title,
+    publication_year=book_data.publication_year,
+    publisher=book_data.publisher,
+    language=book_data.language,
+    price=book_data.price,
+    author=book_data.author,
+    isbn=book_data.isbn,
+    page_count=book_data.page_count,
+    genre=book_data.genre,
+    cover_type=book_data.cover_type,
+)
+
+# Пример создания объекта Magazine
+magazine_model = Magazine(
+    title=magazine_data.title,
+    publication_year=magazine_data.publication_year,
+    publisher=magazine_data.publisher,
+    language=magazine_data.language,
+    price=magazine_data.price,
+    issue_number=magazine_data.issue_number,
+    issn=magazine_data.issn,
+    month=magazine_data.month,
+    season=magazine_data.season,
+    periodicity=magazine_data.periodicity,
+    theme=magazine_data.theme,
+)
+
+# Пример создания объекта Newspaper
+newspaper_model = Newspaper(
+    title=newspaper_data.title,
+    publication_year=newspaper_data.publication_year,
+    publisher=newspaper_data.publisher,
+    language=newspaper_data.language,
+    price=newspaper_data.price,
+    issue_date=newspaper_data.issue_date,
+    issn=newspaper_data.issn,
+    city=newspaper_data.city,
+    chief_editor=newspaper_data.chief_editor,
+    pages=newspaper_data.pages,
+)
