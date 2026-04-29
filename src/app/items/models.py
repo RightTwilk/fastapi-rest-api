@@ -1,5 +1,5 @@
 from datetime import date
-from sqlalchemy.orm import Mapped, mapped_column, declared_attr
+from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy import Date, Numeric, Enum, CheckConstraint, Sequence, String, Integer
 from typing import Optional
 from app.items.enums import (
@@ -19,15 +19,11 @@ global_items_id = Sequence("global_id", start=1, increment=1, metadata=Base.meta
 
 class ItemModel(Base):
 
-    @declared_attr.directive
-    def __tablename__(cls) -> str:
-        return cls.__name__.lower()
-
     __abstract__ = True
     id: Mapped[int] = mapped_column(
         primary_key=True, server_default=global_items_id.next_value()
     )
-    title: Mapped[str] = mapped_column(nullable=False)
+    title: Mapped[str]
     publication_year: Mapped[int]
     publisher: Mapped[str] = mapped_column(nullable=False)
     language: Mapped[Language] = mapped_column(Enum(Language), nullable=False)
