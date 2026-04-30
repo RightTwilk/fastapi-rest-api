@@ -1,6 +1,6 @@
 from datetime import date
 from typing import Optional
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
 from decimal import Decimal
 from app.items.enums import (
     Month,
@@ -51,13 +51,19 @@ class BookCreate(BookBase):
 
 
 class BookResponse(BookBase):
+    model_config = ConfigDict(from_attributes=True)
     id: int
+
 
 class MagazineResponse(MagazineBase):
+    model_config = ConfigDict(from_attributes=True)
     id: int
 
+
 class NewspaperResponse(NewspaperBase):
+    model_config = ConfigDict(from_attributes=True)
     id: int
+
 
 class MagazineCreate(MagazineBase):
     id: int
