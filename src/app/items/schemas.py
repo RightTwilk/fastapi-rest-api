@@ -56,10 +56,11 @@ class BookResponse(BookBase):
 class MagazineResponse(MagazineBase):
     id: int
 
-class NewspaperResponse(NewspaperBase)
+class NewspaperResponse(NewspaperBase):
+    id: int
 
 class MagazineCreate(MagazineBase):
-    pass
+    id: int
 
 
 class NewspaperCreate(NewspaperBase):
