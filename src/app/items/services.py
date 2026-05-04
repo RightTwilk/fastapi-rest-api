@@ -6,46 +6,44 @@ from app.items.schemas import (
     BookCreate,
     MagazineCreate,
     NewspaperCreate,
-    BookResponse,
-    MagazineResponse,
 )
 from typing import Optional
 
 
 # books
-async def get_book(session: AsyncSession) -> list[BookResponse]:
+async def get_book(session: AsyncSession) -> list[Book]:
     result: Result[tuple[Book]] = await session.execute(select(Book).order_by(Book.id))
-    return [BookResponse.model_validate(b) for b in result.scalars().all()]
+    return list(result.scalars().all())
 
 
 async def get_book_by_id(session: AsyncSession, book_id: int) -> Optional[Book]:
     return await session.get(Book, book_id)
 
 
-async def create_book(session: AsyncSession, book_data: BookCreate) -> BookResponse:
+async def create_book(session: AsyncSession, book_data: BookCreate) -> Book:
     book_model = Book(**book_data.model_dump())
     session.add(book_model)
     await session.commit()
     await session.refresh(book_model)
-    return BookResponse.model_validate(book_model)
+    return book_model
 
 
 # magazines
 async def create_magazine(
     session: AsyncSession, magazine_data: MagazineCreate
-) -> MagazineResponse:
+) -> Magazine:
     magazine = Magazine(**magazine_data.model_dump())
     session.add(magazine)
     await session.commit()
     await session.refresh(magazine)
-    return MagazineResponse.model_validate(magazine)
+    return magazine
 
 
-async def get_magazine(session: AsyncSession) -> list[MagazineResponse]:
+async def get_magazine(session: AsyncSession) -> list[Magazine]:
     result: Result[tuple[Magazine]] = await session.execute(
         select(Magazine).order_by(Magazine.id)
     )
-    return [MagazineResponse.model_validate(b) for b in result.scalars().all()]
+    return list(result.scalars().all())
 
 
 async def get_magazine_by_id(
@@ -55,12 +53,14 @@ async def get_magazine_by_id(
 
 
 # newspaper
-async def create_newspaper(session: AsyncSession, newspaper_data: NewspaperCreate):
+async def create_newspaper(
+    session: AsyncSession, newspaper_data: NewspaperCreate
+) -> Newspaper:
     newspaper = Newspaper(**newspaper_data.model_dump())
     session.add(newspaper)
     await session.commit()
     await session.refresh(newspaper)
-    return {"Newspaper": "Created"}
+    return newspaper
 
 
 async def get_newspaper_by_id(
