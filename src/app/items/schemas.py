@@ -66,7 +66,7 @@ class NewspaperResponse(NewspaperBase):
 
 
 class MagazineCreate(MagazineBase):
-    id: int
+    pass
 
 
 class NewspaperCreate(NewspaperBase):
